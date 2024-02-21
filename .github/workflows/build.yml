@@ -47,6 +47,7 @@ jobs:
           context: ./docker
           push: false
           tags: test/calcom:latest
+          network: host
           build-args: |
             NEXT_PUBLIC_WEBAPP_URL=http://localhost:3000
             NEXT_PUBLIC_LICENSE_CONSENT=agree
