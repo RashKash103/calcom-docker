@@ -53,5 +53,5 @@ jobs:
             CALCOM_TELEMETRY_DISABLED=1
             NEXTAUTH_SECRET=secret
             CALENDSO_ENCRYPTION_KEY=secret
-            DATABASE_URL=postgresql://unicorn_user:magical_password@localhost:5432/calendso
-            DATABASE_DIRECT_URL=postgresql://unicorn_user:magical_password@localhost:5432/calendso
+            DATABASE_URL=postgresql://unicorn_user:magical_password@postgres:5432/calendso
+            DATABASE_DIRECT_URL=postgresql://unicorn_user:magical_password@postgres:5432/calendso
