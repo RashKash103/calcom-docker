@@ -45,7 +45,7 @@ jobs:
           context: ./docker
           push: false
           tags: test/calcom:latest
-          builds-args: |
+          build-args: |
             NEXT_PUBLIC_WEBAPP_URL=http://localhost:3000
             NEXT_PUBLIC_LICENSE_CONSENT=agree
             CALCOM_TELEMETRY_DISABLED=1
