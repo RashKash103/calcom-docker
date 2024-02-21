@@ -34,7 +34,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
-          # driver-opts: network=host
+          driver-opts: network=host
           driver: docker
 
       - name: Login to registry
@@ -50,6 +50,7 @@ jobs:
           context: ./docker
           push: false
           tags: test/calcom:latest
+          network: host
           build-args: |
             NEXT_PUBLIC_WEBAPP_URL=http://localhost:3000
             NEXT_PUBLIC_LICENSE_CONSENT=agree
