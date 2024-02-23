@@ -13,9 +13,7 @@ jobs:
       run:
         shell: bash
     steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
+    
       - name: Get Token
         id: get_workflow_token
         uses: peter-murray/workflow-application-token-action@v3
@@ -23,14 +21,17 @@ jobs:
           application_id: ${{ secrets.APPLICATION_ID }}
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
           revoke_token: true
+          
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
 
       - name: Git submodule update
         run: |
           git submodule update --remote --init
 
       - name: Commit
-        env:
-          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         run: |
           git config user.email "actions@github.com"
           git config user.name "actions-user"
